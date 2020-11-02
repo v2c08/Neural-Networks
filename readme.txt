@@ -9,7 +9,7 @@ Based on the input arguments provided in the yaml file, main.py will instantiate
 If multiple values are provided for a single argument this script will take the cartesian product of all 
 arguments and train a single network for each unique permutation.
 
-### Trainers.py:
+### trainers.py:
 
 Trainer - Implements data loading, forward pass, backpropagation and plotting
 
@@ -23,7 +23,7 @@ InteractiveTrainer > Interact with Unity during trainer
 
 Each trainer optimises a single 'model'.
 
-### Models.py:
+### models.py:
 
 Implements the data flow in the forward pass of a model. 
 
@@ -34,7 +34,7 @@ PrednetWorldModel > based on https://arxiv.org/abs/1803.10122 and https://coxlab
 
 Each model consists of one or more 'modules'.
 
-### Modules.py:
+### modules.py:
 
 Defines requires tensor operations. 
 
