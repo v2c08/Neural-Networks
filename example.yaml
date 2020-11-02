@@ -1,0 +1,65 @@
+
+
+# Name of your experiment, all results and models
+# will be saved to this directory
+exp_name : 
+    - "example_config"
+
+# Useful flags for training World Models
+train_gx: True      # Train visual/observation model
+train_fx: False     # Train dynamic/reccurent model
+
+# Preps dataloaders for time series data
+dynamic: False      # add time dimension to input batches
+interactive: False  # Real time interaction with Unity
+lstm_l: 2           # # Number of layers in LSTM
+
+# Standard options
+e    :  100     # n epochs
+b    :  10      # batch size
+lr   :  0.0005  # learning rate
+gpu  : True     # train on GPU
+plot_iter : 50  # plot even n epochs
+dataset: stl10  # Which dataset to train on
+
+# Optional vars for behavioural models
+n_actions: 0
+action_dim: 0
+
+# How many hierarchical layers (used for World Models, PredNet, HVRNN)
+layers: 
+    - 1
+
+# number of discrete latent variables - ignored layer-wise if 0 
+nz_dis:
+    - [[10], 0, 0]  # 3 layer model, 10 disc variables in 1st layer
+    - [0]           # 1 later model, no discrete variables
+
+# annealing parameters for discrete latent variables    
+z_dis_capacity:
+    - [[0.0, 5.0, 75000, 30.0]] # [beta start, beta max, over n steps,  coef]
+
+# Number of continuous latent variables  
+nz_con: 
+    - 10
+# annealing parameters for continuous latent variables    
+z_con_capacity:
+    - [[0.0, 5.0, 60000, 30.0]]
+
+z_dist:
+    - normal
+
+# If true network will encode prediction errors
+prednet: 
+    - True
+    - False
+
+# If false will use deterministic autoencoder
+vae: 
+    - True
+    - False 
+
+# If false will use fully connected layers
+conv:
+    - True
+
